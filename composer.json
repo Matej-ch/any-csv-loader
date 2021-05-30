@@ -1,0 +1,21 @@
+{
+    "name": "matejch/yii2-any-csv-loader",
+    "description": "Loading data from any csv to database table",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","csv","loader"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matej Ch",
+            "email": "matejCH.work@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "matejch\\anyCsvLoader\\": ""
+        }
+    }
+}
