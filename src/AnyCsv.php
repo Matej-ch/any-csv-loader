@@ -2,6 +2,7 @@
 
 namespace matejch\anyCsvLoader;
 
+use matejch\anyCsvLoader\assets\CsvLoaderAsset;
 use Yii;
 use yii\base\Module;
 
@@ -17,6 +18,7 @@ class AnyCsv extends Module
 
         Yii::setAlias('@matejch/anyCsvLoader', __DIR__);
 
+        CsvLoaderAsset::register(Yii::$app->view);
 
         $this->registerTranslations();
     }
