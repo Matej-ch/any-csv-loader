@@ -22,10 +22,8 @@ or add
 to the require section of your `composer.json` file.
 
 
-Usage
+Setup
 -----
 
-Once the extension is installed, simply use it in your code by  :
-
-```php
-<?= \matejch\anyCsvLoader\AutoloadExample::widget(); ?>```
+Usage
+----

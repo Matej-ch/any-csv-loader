@@ -1,0 +1,33 @@
+{
+    "name": "yii2-any-csv-loader",
+    "version": "1.0.0",
+    "description": "Csv loader\r ====================\r Csv file loader with interface",
+    "main": "",
+    "scripts": {
+    "postcss:watch": "postcss src/web/css/assist.css -o src/web/css/assist.min.css --watch",
+        "postcss:compile": "postcss src/web/css/assist.css -o src/web/css/assist.min.css",
+        "babel:compile": "babel src/web/js/assist.js -o src/web/js/assist.min.js"
+},
+    "repository": {
+    "type": "git",
+        "url": "git+https://github.com/Matej-ch/yii2-any-csv-loader.git"
+},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+    "url": "https://github.com/Matej-ch/yii2-any-csv-loader/issues"
+},
+    "homepage": "https://github.com/Matej-ch/yii2-any-csv-loader#readme",
+    "devDependencies": {
+    "@babel/cli": "^7.16.0",
+        "@babel/core": "^7.16.0",
+        "@babel/preset-env": "^7.16.0",
+        "babel-preset-minify": "^0.5.1",
+        "cssnano": "^5.0.10",
+        "postcss": "^8.3.11",
+        "postcss-cli": "^9.0.2",
+        "postcss-import": "^14.0.2",
+        "postcss-preset-env": "^6.7.0"
+}
+}

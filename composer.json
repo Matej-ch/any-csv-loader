@@ -11,12 +11,24 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0",
+        "php": ">=7.2.0",
+        "yiisoft/yii2": "~2.0.40",
         "league/csv": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "matejch\\anyCsvLoader\\": ""
+            "matejch\\anyCsvLoader\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "matejch\\anyCsvLoader\\tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }
