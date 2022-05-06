@@ -1,6 +1,14 @@
-Any csv loader
+Any csv loader (WIP)
 ==============
 Loading data from any csv to database table
+
+I build this as necessity, because we constantly needed to load different csv files, or only specific rows or columns
+from those files.
+
+And constantly building different loaders or adding options or array of columns to load was pain, so I added interface
+for other employees (users) to use this without programmers intervention or necessity to know how to code or adjust classes with maps
+
+Currently, in process of porting it into this module, refactoring code and improving user experience.
 
 Installation
 ------------
