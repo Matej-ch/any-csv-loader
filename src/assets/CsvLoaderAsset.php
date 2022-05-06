@@ -8,12 +8,10 @@ class CsvLoaderAsset extends AssetBundle
 {
     public $sourcePath = '@matejch/anyCsvLoader/web';
 
-    public $css = [
-        'css/style.min.css',
-    ];
+    public $css = [];
 
     public $js = [
-        'js/style.min.js',
+        'dist/main.js',
 
     ];
 
