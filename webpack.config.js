@@ -28,7 +28,9 @@ module.exports = {
                                 outputStyle: "compressed",
                             },
                         },
-                    },],
+                    },
+                    "postcss-loader"
+                ],
             },
             {
                 test: /\.js$/,
