@@ -1,13 +1,14 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: process.env.NODE_ENV,
     entry: {
-        bundle: path.resolve(__dirname, 'src/web/js/main.js'),
+        main: [path.resolve(__dirname, 'src/web/js/main.js'), path.resolve(__dirname, 'src/web/css/main.scss')],
     },
     output: {
         path: path.resolve(__dirname, 'src/web/dist'),
-        filename: 'main.js',
+        filename: '[name].js',
         clean: true,
         assetModuleFilename: '[name][ext]',
     },
@@ -17,7 +18,7 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/,
                 use: [
-                    'style-loader',
+                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     {
                         loader: "sass-loader",
@@ -45,5 +46,10 @@ module.exports = {
                 type: 'asset/resource',
             },
         ],
-    }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+    ],
 }
