@@ -12,11 +12,18 @@ class AnyCsv extends Module
 {
     public $controllerNamespace = 'matejch\anyCsvLoader\controllers';
 
-    public $defaultRoute = 'page-guide/index';
+    public $defaultRoute = 'csv-map/index';
 
     public $models = [];
 
     public $modelsFile = '';
+
+    /**
+     * Global delimiter for csv file parsing
+     *
+     * @var string
+     */
+    public $delimiter = ';';
 
     /**
      * @throws InvalidConfigException
@@ -29,12 +36,12 @@ class AnyCsv extends Module
 
         CsvLoaderAsset::register(Yii::$app->view);
 
-        if(empty($this->models) && empty($this->modelsFile)) {
+        if (empty($this->models) && empty($this->modelsFile)) {
             throw new InvalidConfigException('models or modelsFile must be set');
         }
 
         if (empty($this->models) && !empty($this->modelsFile)) {
-            if(!($fileContents = file_get_contents($this->modelsFile))) {
+            if (!($fileContents = file_get_contents($this->modelsFile))) {
                 throw new InvalidConfigException('modelsFile failed to load');
             }
 
@@ -51,7 +58,7 @@ class AnyCsv extends Module
                 'class' => 'yii\i18n\PhpMessageSource',
                 'sourceLanguage' => 'en',
                 'forceTranslation' => true,
-                'basePath'  => '@matejch/anyCsvLoader/messages',
+                'basePath' => '@matejch/anyCsvLoader/messages',
                 'fileMap' => [
                     'anyCsvLoader/view' => 'view.php',
                     'anyCsvLoader/model' => 'model.php',
