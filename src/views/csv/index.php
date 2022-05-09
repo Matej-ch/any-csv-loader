@@ -26,12 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= Html::fileInput('file', null, ['placeholder' => 'Pick a file from computer...']) ?>
 
-        <?= Html::submitButton('Load file to table') ?>
+        <?= Html::submitButton('Load file to table', ['id' => 'js-load-file']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 
     <div>
         <p>Preview csv file content (first few rows)</p>
+        <?= Html::a('Load more preview rows', ['id' => 'js-load-preview']) ?>
     </div>
 
 
@@ -45,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...']) ?>
     </div>
 
-    <?= Html::submitButton('Load csv map') ?>
+    <?= Html::submitButton('Load csv map', ['id' => 'js-load-map']) ?>
     <?php ActiveForm::end(); ?>
 
     <?php $form = ActiveForm::begin([
@@ -55,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>Save new map here</p>
 
-    <?= Html::submitButton('Save csv map') ?>
+    <?= Html::submitButton('Save csv map', ['id' => 'js-save-map']) ?>
     <?php ActiveForm::end(); ?>
 
 </div>
