@@ -2,5 +2,6 @@
 
 return [
     'Not found' => 'Model sa nenašiel',
-    'csv loader' => 'Načítanie csv súborov'
+    'csv loader' => 'Načítanie csv súborov',
+    'btnText' => 'Csv import',
 ];
