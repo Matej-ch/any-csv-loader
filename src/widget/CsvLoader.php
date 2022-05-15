@@ -55,7 +55,7 @@ class CsvLoader extends Widget
     {
         parent::run();
 
-        return Html::a($this->btnText, ['csv/index', 'delimiter' => $this->delimiter, 'redirect' => $this->redirect, 'models' => $this->keys], ['class' => 'btn btn-primary']);
+        return Html::a($this->btnText, ['any-csv/csv/index', 'delimiter' => $this->delimiter, 'redirect' => $this->redirect, 'models' => $this->keys], ['class' => 'btn btn-primary']);
     }
 
     public function registerTranslations(): void
@@ -67,8 +67,8 @@ class CsvLoader extends Widget
                 'forceTranslation' => true,
                 'basePath' => '@matejch/anyCsvLoader/messages',
                 'fileMap' => [
-                    'pageGuide/view' => 'view.php',
-                    'pageGuide/model' => 'model.php',
+                    'anyCsvLoader/view' => 'view.php',
+                    'anyCsvLoader/model' => 'model.php',
                 ],
             ];
         }
