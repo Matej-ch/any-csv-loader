@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div>
         <p>Preview csv file content (first few rows)</p>
-        <?= Html::a('Load more preview rows', ['id' => 'js-load-preview']) ?>
+        <?= Html::a('Load more preview rows', ['load-rows', 'id' => 'js-load-preview']) ?>
     </div>
 
 

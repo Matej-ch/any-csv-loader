@@ -6,7 +6,8 @@ I build this as necessity, because we constantly needed to load different csv fi
 from those files.
 
 And constantly building different loaders or adding options or array of columns to load was pain, so I added interface
-for other employees (users) to use this without programmers intervention or necessity to know how to code or adjust classes with maps
+for other employees (users) to use this without programmers intervention or necessity to know how to code or adjust
+classes with maps
 
 Currently, in process of porting it into this module, refactoring code and improving user experience.
 
@@ -32,6 +33,9 @@ to the require section of your `composer.json` file.
 
 Setup
 -----
+
+`./yii migrate --migrationPath=@vendor/matejch/yii2-any-csv-loader/src/migrations`
+
 
 Usage
 ----

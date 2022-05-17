@@ -12,7 +12,7 @@ class AnyCsv extends Module
 {
     public $controllerNamespace = 'matejch\anyCsvLoader\controllers';
 
-    public $defaultRoute = 'csv-map/index';
+    public $defaultRoute = 'csv/index';
 
     public $models = [];
 

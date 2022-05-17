@@ -1,6 +1,5 @@
 {
   "name": "yii2-any-csv-loader",
-  "version": "1.0.0",
   "description": "Csv loader\r ====================\r Csv file loader with interface",
   "main": "",
   "scripts": {
