@@ -81,7 +81,7 @@ class AnyCsv extends Module implements BootstrapInterface
     {
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => UrlRule::class, 'pattern' => $this->id, 'route' => $this->id . '/default/index'],
+                ['class' => UrlRule::class, 'pattern' => '/csv/index', 'route' => $this->id . '/csv/index'],
             ], false);
         }
     }
