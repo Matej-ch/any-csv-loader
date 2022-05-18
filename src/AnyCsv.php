@@ -4,11 +4,13 @@ namespace matejch\anyCsvLoader;
 
 use matejch\anyCsvLoader\assets\CsvLoaderAsset;
 use Yii;
+use yii\base\BootstrapInterface;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
 use yii\helpers\Json;
+use yii\web\UrlRule;
 
-class AnyCsv extends Module
+class AnyCsv extends Module implements BootstrapInterface
 {
     public $controllerNamespace = 'matejch\anyCsvLoader\controllers';
 
@@ -70,5 +72,17 @@ class AnyCsv extends Module
     public static function t($category, $message, $params = [], $language = null)
     {
         return Yii::t('anyCsvLoader/' . $category, $message, $params, $language);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function bootstrap($app)
+    {
+        if ($app instanceof \yii\web\Application) {
+            $app->getUrlManager()->addRules([
+                ['class' => UrlRule::class, 'pattern' => $this->id, 'route' => $this->id . '/default/index'],
+            ], false);
+        }
     }
 }

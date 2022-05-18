@@ -20,19 +20,19 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
     <div>
 
-        <?= Html::dropDownList('models', null, [], ['prompt' => 'Pick a model...']) ?>
+        <?= Html::dropDownList('models', null, [], ['prompt' => 'Pick a model...', 'class' => 'input']) ?>
 
-        <?= Html::textInput('input', null, ['placeholder' => 'Paste url with csv file here...']) ?>
+        <?= Html::textInput('input', null, ['placeholder' => 'Paste url with csv file here...', 'class' => 'input']) ?>
 
-        <?= Html::fileInput('file', null, ['placeholder' => 'Pick a file from computer...']) ?>
+        <?= Html::fileInput('file', null, ['placeholder' => 'Pick a file from computer...', 'class' => 'input']) ?>
 
-        <?= Html::submitButton('Load file to table', ['id' => 'js-load-file']) ?>
+        <?= Html::submitButton('Load file to table', ['id' => 'js-load-file', 'class' => 'bg-green-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 
     <div>
         <p>Preview csv file content (first few rows)</p>
-        <?= Html::a('Load more preview rows', ['load-rows', 'id' => 'js-load-preview']) ?>
+        <?= Html::a('Load more preview rows', ['load-rows'], ['id' => 'js-load-preview', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
     </div>
 
 
@@ -43,10 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div>
         <p>Pick previously created map</p>
-        <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...']) ?>
+        <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...', 'class' => 'input']) ?>
     </div>
 
-    <?= Html::submitButton('Load csv map', ['id' => 'js-load-map']) ?>
+    <?= Html::submitButton('Load csv map', ['id' => 'js-load-map', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
     <?php ActiveForm::end(); ?>
 
     <?php $form = ActiveForm::begin([
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>Save new map here</p>
 
-    <?= Html::submitButton('Save csv map', ['id' => 'js-save-map']) ?>
+    <?= Html::submitButton('Save csv map', ['id' => 'js-save-map', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
     <?php ActiveForm::end(); ?>
 
 </div>
