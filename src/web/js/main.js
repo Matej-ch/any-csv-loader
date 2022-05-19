@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const delay = require('lodash/delay');
+
     document.querySelector('body').addEventListener('click', loadCsvMap);
 
     document.querySelector('body').addEventListener('click', saveCsvMap);
@@ -15,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {}).catch(err => console.error(err));
+        fetch('/').then(res => res.json()).then(data => {
+        }).catch(err => console.error(err));
     }
 
     function saveCsvMap(e) {
@@ -25,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {}).catch(err => console.error(err));
+        fetch('/').then(res => res.json()).then(data => {
+        }).catch(err => console.error(err));
     }
 
     function showMoreRows(e) {
@@ -35,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {}).catch(err => console.error(err));
+        fetch('/').then(res => res.json()).then(data => {
+        }).catch(err => console.error(err));
     }
 
     function loadFile(e) {
@@ -45,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {}).catch(err => console.error(err));
+        fetch('/').then(res => res.json()).then(data => {
+        }).catch(err => console.error(err));
     }
 
 })
