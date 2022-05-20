@@ -16,12 +16,41 @@ class AnyCsv extends Module implements BootstrapInterface
 
     public $defaultRoute = 'csv/index';
 
+    /**
+     * Array of your models, that are allowed to be used in module
+     * And for loading data from csv files
+     *
+     * $models array can contain `key => class string`
+     * or `key => array` containing 'model' key with class string and 'guarded' key with array of model attributes
+     * that cannot be changed
+     *
+     * ID OF MODEL IS ALWAYS GUARDED when loading data from csv
+     *
+     * Example:
+     *
+     *  [
+     *  'product' => \app\models\Product::class,
+     *  'order' => [
+     *      'model' => \app\models\Order::class,
+     *      'guarded' => ['id','name'],
+     *  ]
+     * ]
+     *
+     * @var array
+     */
     public $models = [];
 
+    /**
+     * File with json object, containing same settings for models like $models attribute
+     * $models attribute has higher priority than $modelsFile
+     *
+     * @var string
+     */
     public $modelsFile = '';
 
     /**
      * Global delimiter for csv file parsing
+     * Delimiter can be also set in widget or automatically detected
      *
      * @var string
      */

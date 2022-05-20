@@ -2,6 +2,7 @@
 
 namespace matejch\anyCsvLoader\controllers;
 
+use matejch\anyCsvLoader\AnyCsv;
 use matejch\anyCsvLoader\models\CsvMap;
 use Yii;
 use yii\filters\AccessControl;
@@ -46,6 +47,9 @@ class CsvController extends Controller
 
     public function actionIndex(): string
     {
+        
+        $module = $this->getInstance();
+
         return $this->render('index', [
             'maps' => ArrayHelper::map(CsvMap::find()->select('id,name')->all(), 'id', 'name')
         ]);
@@ -89,5 +93,10 @@ class CsvController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('anyCsvLoader/view', 'Not found'));
+    }
+
+    protected function getInstance()
+    {
+        return AnyCsv::getInstance();
     }
 }
