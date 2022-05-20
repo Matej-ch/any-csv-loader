@@ -10,6 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('body').addEventListener('click', loadFile);
 
+    document.querySelector('body').addEventListener('click', loadFile);
+
+    document.querySelector('body').addEventListener('input', e => {
+        if (e.target.classList.contains('.js-url-input')) {
+            loadColumnsAndPreview()
+        }
+    });
+
+    document.querySelector('body').addEventListener('paste', e => {
+        if (e.target.classList.contains('.js-url-input')) {
+            loadColumnsAndPreview()
+        }
+    });
+
+    document.querySelector('body').addEventListener('change', e => {
+        if (e.target.classList.contains('.js-file-input')) {
+            loadColumnsAndPreview()
+        }
+    });
+
+    function loadColumnsAndPreview() {
+
+    }
+
     function loadCsvMap(e) {
         if (e.target.id !== 'js-load-map') {
             return false;
