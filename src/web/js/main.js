@@ -41,8 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {
-        }).catch(err => console.error(err));
+        fetch('/')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success === true) {
+
+                } else {
+
+                }
+            }).catch(err => console.error(err));
     }
 
     function saveCsvMap(e) {
@@ -52,8 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        fetch('/').then(res => res.json()).then(data => {
-        }).catch(err => console.error(err));
+        const form = new FormData(e.target.closest('form'));
+
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-Token': yii.getCsrfToken()
+            },
+            body: form,
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success === true) {
+
+                } else {
+
+                }
+            }).catch(err => console.error(err));
     }
 
     function showMoreRows(e) {

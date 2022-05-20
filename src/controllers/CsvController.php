@@ -21,7 +21,7 @@ class CsvController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['index', 'load-map'],
+                        'actions' => ['index', 'load-map', 'load-preview', 'load-columns', 'save-map'],
                         'allow' => true,
                         'roles' => ['@'],
                     ]
@@ -29,7 +29,7 @@ class CsvController extends Controller
             ],
             'negotiator' => [
                 'class' => ContentNegotiator::class,
-                'only' => ['load-map', 'save-map'],
+                'only' => ['load-map', 'save-map', 'load-columns', 'load-preview'],
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
@@ -44,14 +44,14 @@ class CsvController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex(): string
     {
         return $this->render('index', [
             'maps' => ArrayHelper::map(CsvMap::find()->select('id,name')->all(), 'id', 'name')
         ]);
     }
 
-    public function actionLoadMap($id)
+    public function actionLoadMap($id): array
     {
         try {
             $model = $this->findModel($id);
@@ -62,7 +62,17 @@ class CsvController extends Controller
         return ['success' => true, 'map' => $model->values];
     }
 
-    public function actionSaveMap()
+    public function actionSaveMap(): array
+    {
+        return ['success' => false];
+    }
+
+    public function actionLoadPreview(): array
+    {
+        return ['success' => false];
+    }
+
+    public function actionLoadColumns(): array
     {
         return ['success' => false];
     }

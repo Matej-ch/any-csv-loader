@@ -15,11 +15,11 @@ $loadingIcon = $this->render('_fragments/_loader');
 
     <h1 class="mt-1 mb-2 text-xl text-center mb-4"><?= $this->title ?></h1>
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'js-load-file-form',
-        'options' => ['enctype' => 'multipart/form-data'],
-    ]); ?>
-    <div>
+    <div class="flex flex-row">
+        <?php $form = ActiveForm::begin([
+            'id' => 'js-load-file-form',
+            'options' => ['enctype' => 'multipart/form-data'],
+        ]); ?>
 
         <?= Html::dropDownList('models', null, [], ['prompt' => 'Pick a model...', 'class' => 'input']) ?>
 
@@ -27,13 +27,16 @@ $loadingIcon = $this->render('_fragments/_loader');
 
         <?= Html::fileInput('file', null, ['placeholder' => 'Pick a file from computer...', 'class' => 'input js-file-input', 'accept' => '.csv']) ?>
 
-        <?= Html::submitButton("$loadingIcon Load file to table", ['id' => 'js-load-file', 'class' => 'bg-green-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300']) ?>
-    </div>
-    <?php ActiveForm::end(); ?>
+        <div class="js-columns-attributes"></div>
 
-    <div>
-        <p>Preview csv file content (first few rows)</p>
-        <?= Html::a("$loadingIcon Load more preview rows", ['load-rows'], ['id' => 'js-load-preview', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
+        <?= Html::submitButton("$loadingIcon Load file to table", ['id' => 'js-load-file', 'class' => 'bg-green-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300']) ?>
+
+        <?php ActiveForm::end(); ?>
+
+        <div>
+            <p>Preview csv file content (first few rows)</p>
+            <?= Html::a("$loadingIcon Load more preview rows", ['load-rows'], ['id' => 'js-load-preview', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
+        </div>
     </div>
 
 
