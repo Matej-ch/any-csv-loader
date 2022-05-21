@@ -53,16 +53,15 @@ $loadingIcon = $this->render('_fragments/_loader');
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
         <?php ActiveForm::begin([
             'id' => 'js-load-map-form',
             'action' => ['load-map']
         ]); ?>
 
-        <div class="flex flex-row">
-            <label><?= Yii::t('anyCsvLoader/view', 'maps_list') ?>
-                <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...', 'class' => 'input']) ?>
-            </label>
+        <div class="flex flex-row flex-wrap gap-2">
+            <label class="w-full inline-block"><?= Yii::t('anyCsvLoader/view', 'maps_list') ?></label>
+            <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...', 'class' => 'input']) ?>
 
             <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'load_map'), [
                 'id' => 'js-load-map  js-btn',
@@ -77,16 +76,16 @@ $loadingIcon = $this->render('_fragments/_loader');
             'action' => ['save-map']
         ]); ?>
 
-        <div class="flex flex-row">
-            <label>
-                <?= Yii::t('anyCsvLoader/view', 'new_map_name') ?>
-                <?= Html::textInput('new_map_name', null, ['placeholder' => Yii::t('anyCsvLoader/view', 'new_map_name'), 'class' => 'input']) ?>
-            </label>
+        <div class="flex flex-row flex-wrap gap-2">
+            <label class="w-full inline-block"><?= Yii::t('anyCsvLoader/view', 'new_map_name') ?></label>
 
+            <?= Html::textInput('new_map_name', null, ['placeholder' => Yii::t('anyCsvLoader/view', 'new_map_name'), 'class' => 'input']) ?>
 
-            <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'save_map'), [
-                'id' => 'js-save-map js-btn',
-                'class' => 'tw-btn tw-btn-primary']) ?>
+            <div>
+                <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'save_map'), [
+                    'id' => 'js-save-map js-btn',
+                    'class' => 'tw-btn tw-btn-primary']) ?>
+            </div>
         </div>
 
         <?php ActiveForm::end(); ?>
