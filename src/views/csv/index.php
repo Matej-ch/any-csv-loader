@@ -15,53 +15,70 @@ $loadingIcon = $this->render('_fragments/_loader');
 
     <h1 class="mt-1 mb-2 text-xl text-center mb-4"><?= $this->title ?></h1>
 
-    <div class="flex flex-row">
+    <div class="grid grid-cols-2 gap-4">
         <?php $form = ActiveForm::begin([
             'id' => 'js-load-file-form',
             'options' => ['enctype' => 'multipart/form-data'],
         ]); ?>
 
-        <?= Html::dropDownList('models', null, [], ['prompt' => 'Pick a model...', 'class' => 'input']) ?>
+        <?= Html::dropDownList('models', null, [], ['prompt' => Yii::t('anyCsvLoader/view', 'pick_model'), 'class' => 'input']) ?>
 
-        <?= Html::textInput('input', null, ['placeholder' => 'Paste url with csv file here...', 'class' => 'input js-url-input']) ?>
+        <?= Html::textInput('input', null, ['placeholder' => Yii::t('anyCsvLoader/view', 'pick_url'), 'class' => 'input js-url-input']) ?>
 
-        <?= Html::fileInput('file', null, ['placeholder' => 'Pick a file from computer...', 'class' => 'input js-file-input', 'accept' => '.csv']) ?>
+        <?= Html::fileInput('file', null, ['placeholder' => Yii::t('anyCsvLoader/view', 'pick_file'), 'class' => 'input js-file-input', 'accept' => '.csv']) ?>
 
         <div class="js-columns-attributes"></div>
 
-        <?= Html::submitButton("$loadingIcon Load file to table", ['id' => 'js-load-file', 'class' => 'bg-green-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300']) ?>
+        <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'load_data'), [
+            'id' => 'js-load-file js-btn',
+            'class' => 'bg-green-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300 disabled:bg-slate-300 disabled:pointer-events-none']) ?>
 
         <?php ActiveForm::end(); ?>
 
         <div>
-            <p>Preview csv file content (first few rows)</p>
-            <?= Html::a("$loadingIcon Load more preview rows", ['load-rows'], ['id' => 'js-load-preview', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
+            <p><?= Yii::t('anyCsvLoader/view', 'preview_rows') ?></p>
+            <?= Html::a("$loadingIcon Load more preview rows", ['load-rows'], [
+                'id' => 'js-load-preview  js-btn',
+                'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 disabled:bg-slate-300 disabled:pointer-events-none']) ?>
         </div>
     </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        <?php ActiveForm::begin([
+            'id' => 'js-load-map-form',
+            'action' => ['load-map']
+        ]); ?>
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'js-load-map-form',
-        'action' => ['load-map']
-    ]); ?>
+        <div class="flex flex-row">
+            <label><?= Yii::t('anyCsvLoader/view', 'maps_list') ?>
+                <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...', 'class' => 'input']) ?>
+            </label>
 
-    <div>
-        <p>Pick previously created map</p>
-        <?= Html::dropDownList('map', null, $maps, ['prompt' => 'Pick a map...', 'class' => 'input']) ?>
+            <?php $btnClasses = 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 disabled:bg-slate-300 disabled:pointer-events-none'; ?>
+            <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'load_map'), [
+                'id' => 'js-load-map  js-btn',
+                'class' => $btnClasses,
+                'disabled' => empty($maps)]) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+        <?php ActiveForm::begin([
+            'id' => 'js-save-map-form',
+            'action' => ['save-map']
+        ]); ?>
+
+        <div class="flex flex-row">
+            <?= Html::textInput('new_map_name', null, ['placeholder' => Yii::t('anyCsvLoader/view', 'new_map_name'), 'class' => 'input']) ?>
+
+            <?= Html::submitButton("$loadingIcon " . Yii::t('anyCsvLoader/view', 'save_map'), [
+                'id' => 'js-save-map js-btn',
+                'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 disabled:bg-slate-300 disabled:pointer-events-none']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
     </div>
-
-    <?= Html::submitButton("$loadingIcon Load csv map", ['id' => 'js-load-map', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
-    <?php ActiveForm::end(); ?>
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'js-save-map-form',
-        'action' => ['save-map']
-    ]); ?>
-
-    <p>Save new map here</p>
-
-    <?= Html::submitButton("$loadingIcon Save csv map", ['id' => 'js-save-map', 'class' => 'bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300']) ?>
-    <?php ActiveForm::end(); ?>
 
     <!--<svg class="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-400"
          viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
